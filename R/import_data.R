@@ -59,11 +59,15 @@ DAT_ACTIVITIES <- bind_rows(TDAT_ACTIVITIES)
 ## -----------------------------------------------------------------------------
 ## Export datasets to JSON and RData formats
 
+participants <- DAT_PARTICIPANTS
+policy_info <- DAT_POLICY
+activities <- DAT_ACTIVITIES
+
 ## Save data
-save(DAT_PARTICIPANTS, DAT_POLICY, DAT_ACTIVITIES,
-     file = "data/DAT.RData")
+save(participants, policy_info, activities,
+     file = "data/insurance_data.RData")
 
 ## Export JSON
-write(toJSON(DAT_PARTICIPANTS), file = "data/DAT_PARTICIPANTS.json")
-write(toJSON(DAT_POLICY), file = "data/DAT_POLICY.json")
-write(toJSON(DAT_ACTIVITIES), file = "data/DAT_ACTIVITIES.json")
+write(toJSON(participants), file = "data/participants.json")
+write(toJSON(policy_info), file = "data/policy_info.json")
+write(toJSON(activities), file = "data/activities.json")
